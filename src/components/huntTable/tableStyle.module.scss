@@ -1,0 +1,9 @@
+@use '@react-md/theme/dist/color-palette' as color;
+
+.tableContainer {
+  max-height: 35rem;
+}
+
+.highlighted {
+  background-color: color.$rmd-orange-a-700;
+}

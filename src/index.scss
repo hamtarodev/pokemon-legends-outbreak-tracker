@@ -1,0 +1,14 @@
+@use '@fontsource/roboto';
+@use '@react-md/theme/dist/color-palette' as color;
+@use 'react-md' as * with (
+  $rmd-theme-light: false,
+  $rmd-theme-primary: color.$rmd-amber-500,
+  $rmd-theme-secondary: color.$rmd-orange-a-700,
+  // other variable overrides
+);
+
+@include react-md-utils;
+
+body {
+  font-family: 'Roboto';
+}
