@@ -13,7 +13,7 @@ const HuntTable: React.FC = () => {
 
   const tableHeaders = ['Total Hunted', 'Level', 'HP', 'Attack', 'Defense', 'Sp. Attack', 'Sp. Defense', 'Speed', ''].map((label) => {
     return (
-      <TableCell>{label}</TableCell>
+      <TableCell key={`header-${label}`}>{label}</TableCell>
     );
   });
 
@@ -29,14 +29,14 @@ const HuntTable: React.FC = () => {
           <TableBody>
             {Array.from(tracker.pokemonHunted, (tracked, index) => (
                <TableRow key={`hunted-${index}`} className={tracked.current ? styles.highlighted : ''}>
-                <TableCell>{tracked.numberHunted}</TableCell>
-                <TableCell>{tracked.pokemonStats.level}</TableCell>
-                <TableCell>{tracked.pokemonStats.hp}</TableCell>
-                <TableCell>{tracked.pokemonStats.attack}</TableCell>
-                <TableCell>{tracked.pokemonStats.defense}</TableCell>
-                <TableCell>{tracked.pokemonStats.spAttack}</TableCell>
-                <TableCell>{tracked.pokemonStats.spDefense}</TableCell>
-                <TableCell>{tracked.pokemonStats.speed}</TableCell>
+                <TableCell key={`hunted-${index}-noHunted}`}>{tracked.numberHunted}</TableCell>
+                <TableCell key={`hunted-${index}-level}`}>{tracked.pokemonStats.level}</TableCell>
+                <TableCell key={`hunted-${index}-hp}`}>{tracked.pokemonStats.hp}</TableCell>
+                <TableCell key={`hunted-${index}-attack}`}>{tracked.pokemonStats.attack}</TableCell>
+                <TableCell key={`hunted-${index}-defense}`}>{tracked.pokemonStats.defense}</TableCell>
+                <TableCell key={`hunted-${index}-spAttack}`}>{tracked.pokemonStats.spAttack}</TableCell>
+                <TableCell key={`hunted-${index}-spDefense}`}>{tracked.pokemonStats.spDefense}</TableCell>
+                <TableCell key={`hunted-${index}-speed}`}>{tracked.pokemonStats.speed}</TableCell>
                 <TableCell>
                   <Button onClick={() => dispatch(deleteEntry(index))}>
                     <TextIconSpacing icon={<DeleteSVGIcon/>}></TextIconSpacing>

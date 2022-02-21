@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, Grid, GridCell, SearchSVGIcon, TextField, TextIconSpacing, Typography, useToggle } from 'react-md';
+import { Button, Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, Grid, GridCell, SearchSVGIcon, TextField, TextIconSpacing, Typography } from 'react-md';
 import { PokemonStatsModel } from './../../models/PokemonStatsModel';
 import { StatsInput } from './../../interfaces/StatsInput';
 import { searchAddHunted } from '../tracker/trackerSlice';
@@ -41,8 +41,9 @@ const SearchForm: React.FC = () => {
 
   const gridCells = statsInputs.map(input => {
     return (
-      <GridCell colSpan={3}>
+      <GridCell colSpan={3} key={`gridcell-${input.id}`}>
         <TextField
+          key={`input-${input.id}`}
           id={input.id}
           type='number'
           label={input.label}
